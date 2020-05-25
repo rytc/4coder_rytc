@@ -1,0 +1,15 @@
+
+!themes/theme-rytc.4coder
+!custom/rytc/*
+custom/*.cpp
+custom/*.h
+custom/bin/
+custom/languages/
+custom/lexer_generator/
+custom/generated/
+fonts/
+themes/*
+4ed
+*.so
+*.txt
+project.4coder
