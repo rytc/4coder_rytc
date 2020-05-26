@@ -1,4 +1,5 @@
 
+#include "rytc_rendering.cpp"
 
 BUFFER_HOOK_SIG(rytc_begin_buffer){
     ProfileScope(app, "begin buffer");
@@ -205,12 +206,15 @@ rytc_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
     
     
     
+    
     // NOTE(allen): Cursor shape
     Face_Metrics metrics = get_face_metrics(app, face_id);
     f32 cursor_roundness = (metrics.normal_advance*0.5f)*0.9f;
     f32 mark_thickness = 2.f;
     
+    
     draw_rytc_cursor_mark_highlight(app, view_id, is_active_view, buffer, text_layout_id, cursor_roundness, mark_thickness);
+    Fleury4RenderBraceLines(app, buffer, view_id, text_layout_id, cursor_pos);
     
     // NOTE(allen): put the actual text on the actual screen
     draw_text_layout_default(app, text_layout_id);
